@@ -1,0 +1,1 @@
+console.log('main.js 로드 완료') 

@@ -1,0 +1,28 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "node backend server test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oizys18/nodeJStest.git"
+  },
+  "keywords": [
+    "nodeJs",
+    "nodeserver",
+    "backend"
+  ],
+  "author": "Oizys18",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Oizys18/nodeJStest/issues"
+  },
+  "homepage": "https://github.com/Oizys18/nodeJStest#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}
