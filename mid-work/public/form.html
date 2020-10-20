@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" action="/text_post" method="POST">
+
+    </form>
+    <button class="send">send</button>
+    <div class="result"></div>
+</body>
+
+<script>
+    document.querySelector('.send').addEventListener('click', function () {
+        const inputvalue = document.forms[0].elements[0].value;
+        sendAjax("http://127.0.0.1:3000/text_post", inputvalue)
+    })
+
+    function sendAjax(url, text) {
+        let data = {
+            'text': text
+        };
+        data = JSON.stringify(data)
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.send(data);
+        console.log(data)
+
+        xhr.addEventListener('load', function(){
+            result = JSON.parse(xhr.responseText)
+            document.querySelector('.result').innerHTML = result.text
+            console.log(result)
+        })
+
+    }
+</script>
+
+</html>
