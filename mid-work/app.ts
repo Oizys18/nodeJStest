@@ -4,8 +4,9 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const app = express();
 const DB_CREDENTIAL = require("./credential.json");
+const main = require("./router/main");
+
 const connection = mysql.createConnection(DB_CREDENTIAL);
-console.log(DB_CREDENTIAL);
 connection.connect();
 
 app.use(bodyParser.json());
@@ -14,10 +15,8 @@ app.listen(3000, function () {
   console.log("3000 server on");
 });
 app.use(express.static("public"));
-app.get("/", function (req: any, res: any) {
-  console.log("main");
-  res.sendFile(__dirname + "/public/form.html");
-});
+
+app.use("/", main);
 
 app.post("/text_post", function (req: any, res: any) {
   const text: string = req.body.text;
